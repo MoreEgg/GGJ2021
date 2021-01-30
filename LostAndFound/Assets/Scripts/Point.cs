@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Point : Token
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +18,12 @@ public class Point : Token
 
     public override void PlayerTouched()
     {
-       
+       //make coin sound.
+//       SoundPlayer player = new SoundPlayer("../Zero Rare/Retro Sound Effects/Audio/coin_15.wav");
+//       player.Play();
+//       player.Stop();
+       gameObject.GetComponent<AudioSource>().enabled = true;
+       gameObject.GetComponent<SpriteRenderer>().enabled = false;
+       Destroy (gameObject, 0.6f);
     }
 }

@@ -7,7 +7,8 @@ public class MainController : MonoBehaviour
     public float speed = 0.1f;
 
     private Collider2D collider;
-
+    
+    private float Life = 4.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,12 @@ public class MainController : MonoBehaviour
         print("collision!!!!");
         other.GetComponent<Token>().PlayerTouched();
     }
-
+    public void damage(){
+        this.Life -= 0.5f;
+    }
+    public void health(){
+        this.Life += 0.5f;
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         
