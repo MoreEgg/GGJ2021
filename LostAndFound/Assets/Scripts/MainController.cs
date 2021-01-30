@@ -28,6 +28,7 @@ public class MainController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         print("collision!!!!");
+        other.GetComponent<Token>().PlayerTouched();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
