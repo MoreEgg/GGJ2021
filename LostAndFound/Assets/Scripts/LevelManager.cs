@@ -10,17 +10,25 @@ public class LevelManager : MonoBehaviour
     GameObject backgroundGO;
     GameObject pathGO;
 
+    GameObject leftBackgroundGO, rightBackgroundGO;
+    float bgWidth;
+
     // Start is called before the first frame update
     void Start()
     {
         backgroundGO = GameObject.Find("Background");
+        bgWidth = backgroundGO.GetComponent<SpriteRenderer>().bounds.size.x;
+        leftBackgroundGO = GameObject.Instantiate(backgroundGO, backgroundGO.transform);
+        rightBackgroundGO = GameObject.Instantiate(leftBackgroundGO, backgroundGO.transform);
+        leftBackgroundGO.transform.position = backgroundGO.transform.position - new Vector3(bgWidth, 0f);
+        rightBackgroundGO.transform.position = backgroundGO.transform.position + new Vector3(bgWidth, 0f);
+
         pathGO = GameObject.Find("Path");
     }
 
     // Update is called once per frame
     void Update()
     {
-        backgroundGO.GetComponent<SpriteRenderer>().material.SetVector("_ScrollSpeed", ScrollSpeed);
     }
 
     private void FixedUpdate()
@@ -28,5 +36,13 @@ public class LevelManager : MonoBehaviour
         Vector4 pathPos = pathGO.transform.position;
         pathPos.x -= speed;
         pathGO.transform.position = pathPos;
+
+        Vector4 bgPos = backgroundGO.transform.position;
+        bgPos.x -= speed;
+        if (bgPos.x + bgWidth < 0.0f) {
+            bgPos.x += bgWidth;
+        }
+        backgroundGO.transform.position = bgPos;
+
     }
 }
