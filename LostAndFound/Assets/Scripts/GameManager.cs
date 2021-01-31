@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     public GameObject health;
     public GameObject heartTemplete;
     public GameObject negative;
-    private int score = 0;
     public Text scoreText;
 
-    int nowHeart;
+    public int score = 0;
+    public int nowHeart;
     List<GameObject> heartList = new List<GameObject>();
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         Init();
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
             Application.Quit();
     }
 
-    private void Init() {
+    private void Init()
+    {
         nowHeart = initHeartNum;
         UpdateHeart();
 
@@ -65,7 +66,8 @@ public class GameManager : MonoBehaviour
 
         if (nowHeart >= 0)
         {
-            for (int i = 0; i < nowHeart; i++) {
+            for (int i = 0; i < nowHeart; i++)
+            {
                 GameObject newHeart = Instantiate(heartTemplete, health.transform);
 
                 newHeart.GetComponent<RectTransform>().anchoredPosition = new Vector3(heartTemplete.GetComponent<RectTransform>().localPosition.x + heartList.Count * heartDistance, 0.0f);
@@ -73,7 +75,8 @@ public class GameManager : MonoBehaviour
                 heartList.Add(newHeart);
             }
         }
-        else {
+        else
+        {
             negative.SetActive(true);
 
             for (int i = 0; i < (int)Mathf.Abs(nowHeart); i++)
@@ -87,17 +90,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        public void AddPoints(int amount) {
+    public void AddPoints(int amount)
+    {
         score += amount;
         UpdateScore();
     }
 
-    private void UpdateScore() {
+    private void UpdateScore()
+    {
 
         scoreText.text = score.ToString();
     }
 
-    public void ShowStatus() {
+    public void ShowStatus()
+    {
         status.SetActive(true);
     }
 
