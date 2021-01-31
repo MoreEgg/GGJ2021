@@ -1487,14 +1487,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitBeforeStart: 2
   speed: 0.2
+  midSpeed: 0.4
   openGO: {fileID: 465255184}
   startGO: {fileID: 1391163154}
   endGO: {fileID: 1623895848}
   targetGO: {fileID: 1468574058}
   targetMoveBackSpeed: 0.2
   endingTime: 3
-  nextScene:
-    m_Handle: 0
+  nextScene: 
   nowState: 0
 --- !u!4 &564578309
 Transform:
@@ -1626,16 +1626,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 55fb9efdf066f974fa75ed2b29d53520, type: 3}
-    m_FontSize: 14
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Catch the Thief!
 --- !u!222 &600692563
@@ -3278,10 +3278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4958,7 +4958,7 @@ SpriteRenderer:
   m_Size: {x: 38.399998, y: 10.799999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1935981642
