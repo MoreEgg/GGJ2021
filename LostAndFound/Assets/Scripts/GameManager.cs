@@ -40,5 +40,10 @@ public class GameManager : MonoBehaviour
     }
     public void RemoveHeart()
     {
+        if (heartList.Count > 1) {
+            GameObject h = heartList[heartList.Count - 1];
+            heartList.RemoveAt(heartList.Count - 1);
+            Destroy(h);
+        }
     }
 }
