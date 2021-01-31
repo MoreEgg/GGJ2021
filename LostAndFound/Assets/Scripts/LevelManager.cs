@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LevelManager : MonoBehaviour
     GameObject pathGO;
 
     public GameObject openGO;
+    public GameObject startGO;
     public GameObject endGO;
     public GameObject targetGO;
 
@@ -21,9 +23,13 @@ public class LevelManager : MonoBehaviour
     float bgWidth;
     float nowTime;
 
+    public float endingTime = 3.0f;
+    public Scene nextScene;
+
     public enum State
     {
         Open,
+        Start,
         StartRun,
         Running,
         End
@@ -44,6 +50,8 @@ public class LevelManager : MonoBehaviour
         pathGO = GameObject.Find("Path");
 
         nowTime = waitBeforeStart;
+        startGO.SetActive(false);
+        endGO.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,20 +64,42 @@ public class LevelManager : MonoBehaviour
         switch (nowState)
         {
             case State.Open:
+                if (openGO.activeSelf == false)
+                    openGO.SetActive(true);
+
+                nowTime -= Time.deltaTime;
+                if (nowTime <= 0.0f)
+                {
+                    nowTime = waitBeforeStart;
+                    nowState = State.Start;
+                    openGO.SetActive(false);
+                }
+                break;
+
+            case State.Start:
+                if (startGO.activeSelf == false)
+                    startGO.SetActive(true);
+
                 nowTime -= Time.deltaTime;
                 if (nowTime <= 0.0f)
                     nowState = State.Running;
                 break;
+
             case State.Running:
                 if (nowSpeed < speed)
                     nowSpeed += speed * (Time.deltaTime / 2.0f);
                 else
                     nowSpeed = speed;
-
                 updateTarget();
                 break;
+
             case State.End:
+                if (endGO.activeSelf == false)
+                    endGO.SetActive(true);
                 nowSpeed = 0;
+                nowTime -= Time.deltaTime;
+                if (nowTime <= 0.0f && Input.GetKeyDown(KeyCode.Space))
+                    SceneManager.LoadScene(nextScene.name);
                 break;
         }
 
@@ -117,5 +147,6 @@ public class LevelManager : MonoBehaviour
     public void TouchTarget()
     {
         nowState = State.End;
+        nowTime = endingTime;
     }
 }
