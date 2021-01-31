@@ -110,6 +110,20 @@ public class MainController : MonoBehaviour
                 print("add point");
             }
         }
+
+
+        string colliderName = other.transform.name;
+        switch (colliderName) {
+            case "Mid":
+                GameObject.Find("LevelManager").GetComponent<LevelManager>().ReachMid();
+                break;
+            case "Goal":
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().ReachGoal();
+                break;
+            case "TargetChar":
+                GameObject.Find("LevelManager").GetComponent<LevelManager>().TouchTarget();
+                break;
+        }
     }
     private bool isGround()
     {
