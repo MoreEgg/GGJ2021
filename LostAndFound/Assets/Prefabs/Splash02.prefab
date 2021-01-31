@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1535064516704043419}
   - component: {fileID: 6758569968745297211}
   - component: {fileID: 8661035439620625436}
+  - component: {fileID: 7152156173465736694}
   m_Layer: 0
   m_Name: Splash02
   m_TagString: Untagged
@@ -206,3 +207,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7152156173465736694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721639795483479261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0323125dca39a8d45b0248e4b7108ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointAmount: 100
