@@ -15,7 +15,14 @@ public class Obstacle : Token
     {
         
     }
-    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        print("collision obstacle!!!!");
+        //other.GetComponent<Token>().PlayerTouched();
+//        if(other.gameObject.name == "Player"){
+//            other.gameObject
+//        }
+    }
     public override void PlayerTouched()
     {
         
