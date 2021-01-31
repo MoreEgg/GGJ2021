@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public float waitBeforeStart = 2.0f;
-    public float speed = 0.05f;
+    public float speed = 0.2f;
     float nowSpeed = 0.0f;
+
+    public float midSpeed = 0.4f;
+
     GameObject backgroundGO;
     GameObject pathGO;
 
@@ -91,10 +94,20 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case State.Running:
-                if (nowSpeed < speed)
-                    nowSpeed += speed * (Time.deltaTime / 2.0f);
-                else
-                    nowSpeed = speed;
+                if (!isMid)
+                {
+                    if (nowSpeed < speed)
+                        nowSpeed += speed * (Time.deltaTime / 2.0f);
+                    else
+                        nowSpeed = speed;
+                }
+                else {
+                    if (nowSpeed < midSpeed)
+                        nowSpeed += (midSpeed-speed) * (Time.deltaTime / 2.0f);
+                    else
+                        nowSpeed = midSpeed;
+                }
+                
                 updateTarget();
                 break;
 
