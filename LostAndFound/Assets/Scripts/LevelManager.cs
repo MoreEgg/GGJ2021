@@ -118,6 +118,8 @@ public class LevelManager : MonoBehaviour
                     endGO.SetActive(true);
                 nowSpeed = 0;
                 nowTime -= Time.deltaTime;
+                //Debug.LogError(nowTime);
+                //Debug.LogError(Input.GetKeyDown(KeyCode.Space));
                 if (nowTime <= 0.0f && Input.GetKeyDown(KeyCode.Space))
                     if (gameManager != null)
                         gameManager.EnterNextScene(nextScene);
@@ -167,7 +169,8 @@ public class LevelManager : MonoBehaviour
 
     public void TouchTarget()
     {
+        if (nowState != State.End)
+            nowTime = endingTime;
         nowState = State.End;
-        nowTime = endingTime;
     }
 }

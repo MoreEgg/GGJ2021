@@ -1800,7 +1800,7 @@ MonoBehaviour:
   targetGO: {fileID: 1468574058}
   targetMoveBackSpeed: 0.2
   endingTime: 3
-  nextScene: 
+  nextScene: Level2
   nowState: 0
 --- !u!4 &564578309
 Transform:

@@ -12,7 +12,7 @@ public class Creddit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
+        gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
         point.text = gameManager.score.ToString();
         heart.text = gameManager.nowHeart.ToString();
     }

@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f72abaca3e8fc94a98568d8d7080db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: TomTest
+  nextScene: Level1
 --- !u!95 &758914539
 Animator:
   serializedVersion: 3
@@ -741,6 +741,8 @@ MonoBehaviour:
   heartTemplete: {fileID: 1945097679}
   negative: {fileID: 420059522}
   scoreText: {fileID: 583589559}
+  score: 0
+  nowHeart: 0
 --- !u!114 &1249186026
 MonoBehaviour:
   m_ObjectHideFlags: 0
