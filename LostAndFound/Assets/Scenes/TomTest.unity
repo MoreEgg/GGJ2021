@@ -201,18 +201,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 698862567}
     m_Modifications:
-    - target: {fileID: 9061630009290228461, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9061630009290228461, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9061630009290228462, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0900e2e18a3e389418069e4089fdcf0c, type: 3}
     - target: {fileID: 9061630009290228463, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3064,6 +3052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2104451206}
+  - component: {fileID: 2104451205}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -3071,6 +3060,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &2104451205
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104451204}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc83762aaa591a849bd30dfd8bc7132b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &2104451206
 Transform:
   m_ObjectHideFlags: 0
@@ -3220,6 +3228,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 698862567}
     m_Modifications:
+    - target: {fileID: 9061630009290228462, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061630009290228462, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9061630009290228463, guid: 8fb3624b58b9e78458865195d1c451cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
