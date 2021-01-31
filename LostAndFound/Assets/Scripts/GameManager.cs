@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     public GameObject status;
     public GameObject health;
     public GameObject heartTemplete;
+    public GameObject negative;
     private int score = 0;
     public Text scoreText;
 
+    int nowHeart;
     List<GameObject> heartList = new List<GameObject>();
     private void Awake()
     {
@@ -36,30 +38,56 @@ public class GameManager : MonoBehaviour
     }
 
     private void Init() {
-        for (int i = 0; heartList.Count < initHeartNum; i++)
-            AddHeart();
+        nowHeart = initHeartNum;
+        UpdateHeart();
+
         score = 0;
         UpdateScore();
     }
 
     public void AddHeart()
     {
-        GameObject newHeart = Instantiate(heartTemplete, health.transform);
-        
-        newHeart.GetComponent<RectTransform>().anchoredPosition = new Vector3(heartTemplete.GetComponent<RectTransform>().localPosition.x + heartList.Count * heartDistance, 0.0f);
-        newHeart.SetActive(true);
-        heartList.Add(newHeart);
+        nowHeart++;
+        UpdateHeart();
     }
     public void RemoveHeart()
     {
-        if (heartList.Count > 1) {
-            GameObject h = heartList[heartList.Count - 1];
-            heartList.RemoveAt(heartList.Count - 1);
-            Destroy(h);
+        nowHeart--;
+        UpdateHeart();
+    }
+
+    private void UpdateHeart()
+    {
+        negative.SetActive(false);
+        for (int i = 0; i < heartList.Count; i++)
+            Destroy(heartList[i]);
+        heartList.Clear();
+
+        if (nowHeart >= 0)
+        {
+            for (int i = 0; i < nowHeart; i++) {
+                GameObject newHeart = Instantiate(heartTemplete, health.transform);
+
+                newHeart.GetComponent<RectTransform>().anchoredPosition = new Vector3(heartTemplete.GetComponent<RectTransform>().localPosition.x + heartList.Count * heartDistance, 0.0f);
+                newHeart.SetActive(true);
+                heartList.Add(newHeart);
+            }
+        }
+        else {
+            negative.SetActive(true);
+
+            for (int i = 0; i < (int)Mathf.Abs(nowHeart); i++)
+            {
+                GameObject newHeart = Instantiate(heartTemplete, health.transform);
+
+                newHeart.GetComponent<RectTransform>().anchoredPosition = new Vector3(heartTemplete.GetComponent<RectTransform>().localPosition.x + heartList.Count * heartDistance + 80f, 0.0f);
+                newHeart.SetActive(true);
+                heartList.Add(newHeart);
+            }
         }
     }
 
-    public void AddPoints(int amount) {
+        public void AddPoints(int amount) {
         score += amount;
         UpdateScore();
     }
