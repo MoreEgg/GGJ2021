@@ -23,7 +23,8 @@ public class MainController : MonoBehaviour
     {
         body2D = GetComponent<Rigidbody2D>();
 
-        gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
+        if (GameObject.Find("Canvas") != null)
+            gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -127,12 +128,14 @@ public class MainController : MonoBehaviour
     public void damage()
     {
         this.Life -= 0.5f;
-        gameManager.RemoveHeart();
+        if (gameManager != null)
+            gameManager.RemoveHeart();
     }
     public void heal()
     {
         this.Life += 0.5f;
-        gameManager.AddHeart();
+        if (gameManager != null)
+            gameManager.AddHeart();
     }
     public void printLife()
     {
@@ -141,7 +144,8 @@ public class MainController : MonoBehaviour
 
     public void addPoint(int amount)
     {
-        gameManager.AddPoints(amount);
+        if (gameManager != null)
+            gameManager.AddPoints(amount);
     }
 
 }
