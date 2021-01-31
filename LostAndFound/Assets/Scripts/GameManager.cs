@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
 {
-    public int heartNum = 4;
+    public int initHeartNum = 4;
     public float heartDistance = 110f;
     public GameObject health;
     public GameObject heartTemplete;
+    private int score = 0;
+    public Text scoreText;
 
     List<GameObject> heartList = new List<GameObject>();
     private void Awake()
@@ -20,14 +22,21 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < heartNum; i++)
-            AddHeart();
+        Init();
     }
 
+    
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void Init() {
+        for (int i = 0; heartList.Count < initHeartNum; i++)
+            AddHeart();
+        score = 0;
+        UpdateScore();
     }
 
     public void AddHeart()
@@ -47,6 +56,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddPoints(int amount) { 
+    public void AddPoints(int amount) {
+        score += amount;
+        UpdateScore();
+    }
+
+    private void UpdateScore() {
+
+        scoreText.text = score.ToString();
     }
 }
