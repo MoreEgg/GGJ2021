@@ -24,7 +24,9 @@ public class LevelManager : MonoBehaviour
     float nowTime;
 
     public float endingTime = 3.0f;
-    public Scene nextScene;
+    public string nextScene;
+
+    GameManager gameManager;
 
     public enum State
     {
@@ -48,6 +50,8 @@ public class LevelManager : MonoBehaviour
         rightBackgroundGO.transform.position = backgroundGO.transform.position + new Vector3(bgWidth, 0f);
 
         pathGO = GameObject.Find("Path");
+
+        gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
 
         nowTime = waitBeforeStart;
         startGO.SetActive(false);
@@ -73,6 +77,7 @@ public class LevelManager : MonoBehaviour
                     nowTime = waitBeforeStart;
                     nowState = State.Start;
                     openGO.SetActive(false);
+                    gameManager.ShowStatus();
                 }
                 break;
 
@@ -99,7 +104,7 @@ public class LevelManager : MonoBehaviour
                 nowSpeed = 0;
                 nowTime -= Time.deltaTime;
                 if (nowTime <= 0.0f && Input.GetKeyDown(KeyCode.Space))
-                    SceneManager.LoadScene(nextScene.name);
+                    gameManager.EnterNextScene(nextScene);
                 break;
         }
 

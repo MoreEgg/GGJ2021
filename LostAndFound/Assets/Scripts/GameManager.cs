@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
     public int initHeartNum = 4;
     public float heartDistance = 110f;
+    public GameObject status;
     public GameObject health;
     public GameObject heartTemplete;
     private int score = 0;
@@ -64,5 +66,15 @@ public class GameManager : MonoBehaviour
     private void UpdateScore() {
 
         scoreText.text = score.ToString();
+    }
+
+    public void ShowStatus() {
+        status.SetActive(true);
+    }
+
+    public void EnterNextScene(string scene)
+    {
+        status.SetActive(false);
+        SceneManager.LoadScene(scene);
     }
 }
