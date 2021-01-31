@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Point : Token
 {
+    public int pointAmount = 100;
     // Start is called before the first frame update
     void Start()
     {
