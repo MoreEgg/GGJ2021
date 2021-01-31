@@ -25,6 +25,7 @@ public class Obstacle : Token
     }
     public override void PlayerTouched()
     {
-        
+       gameObject.GetComponent<AudioSource>().enabled = true;
+       
     }
 }
