@@ -6,7 +6,6 @@ public class MainController : MonoBehaviour
 {
     public float speed = 0.1f;
 
-    private Collider2D collider;
     private Rigidbody2D body2D;
     private float Life = 4.0f;
     private float isGroundedRayLength =0.1f;
@@ -16,12 +15,15 @@ public class MainController : MonoBehaviour
     public bool standing;
     public float jetSpeed = 150f;
     public Vector2 maxVelocity = new Vector2 (60,100);
+
+    private GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
         body2D = GetComponent<Rigidbody2D>();
+
+        gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -105,9 +107,11 @@ public class MainController : MonoBehaviour
     }
     public void damage(){
         this.Life -= 0.5f;
+        gameManager.RemoveHeart();
     }
     public void heal(){
         this.Life += 0.5f;
+        gameManager.AddHeart();
     }
     public void printLife(){
         print("Player life:" + this.Life);
