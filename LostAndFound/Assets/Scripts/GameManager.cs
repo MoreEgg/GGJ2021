@@ -46,4 +46,7 @@ public class GameManager : MonoBehaviour
             Destroy(h);
         }
     }
+
+    public void AddPoints(int amount) { 
+    }
 }
