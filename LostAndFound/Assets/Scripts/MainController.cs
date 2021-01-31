@@ -153,6 +153,8 @@ public class MainController : MonoBehaviour
     public void damage()
     {
         this.Life -= 0.5f;
+        Transform child = transform.GetChild(0);
+        child.GetComponent<Ouch>().Hit();
         if (gameManager != null)
             gameManager.RemoveHeart();
     }
