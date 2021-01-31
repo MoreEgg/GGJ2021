@@ -80,7 +80,8 @@ public class LevelManager : MonoBehaviour
                     nowTime = waitBeforeStart;
                     nowState = State.Start;
                     openGO.SetActive(false);
-                    gameManager.ShowStatus();
+                    if (gameManager != null)
+                        gameManager.ShowStatus();
                 }
                 break;
 
@@ -101,13 +102,14 @@ public class LevelManager : MonoBehaviour
                     else
                         nowSpeed = speed;
                 }
-                else {
+                else
+                {
                     if (nowSpeed < midSpeed)
-                        nowSpeed += (midSpeed-speed) * (Time.deltaTime / 2.0f);
+                        nowSpeed += (midSpeed - speed) * (Time.deltaTime / 2.0f);
                     else
                         nowSpeed = midSpeed;
                 }
-                
+
                 updateTarget();
                 break;
 
@@ -117,7 +119,8 @@ public class LevelManager : MonoBehaviour
                 nowSpeed = 0;
                 nowTime -= Time.deltaTime;
                 if (nowTime <= 0.0f && Input.GetKeyDown(KeyCode.Space))
-                    gameManager.EnterNextScene(nextScene);
+                    if (gameManager != null)
+                        gameManager.EnterNextScene(nextScene);
                 break;
         }
 
