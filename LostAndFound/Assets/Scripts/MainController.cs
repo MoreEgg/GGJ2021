@@ -47,15 +47,26 @@ public class MainController : MonoBehaviour
         var forceY = 0f;
         Debug.Log("absVelY:" + absVelY);
         Debug.Log("absVelX:" + absVelX);
+        Transform current = transform;
+        current = current.GetChild(0); 
+        Debug.Log("subchild:" + current.name);
+        var ani = current.GetComponent<Animator>();
+        
         if (isGround() && Input.GetKeyDown(KeyCode.Space))
         {
             if (absVelY < maxVelocity.y)
             {
                 forceY = jetSpeed;
             }
-
+            //ani.SetInteger("AnimState",1);
         }
-
+        if( standing){
+            ani.SetInteger("AnimState",0);
+        }else if(body2D.velocity.y>0&&!standing){
+             ani.SetInteger("AnimState",1);
+        }else if(body2D.velocity.y<0&&!standing){
+             ani.SetInteger("AnimState",2);
+        }
 
         body2D.AddForce(new Vector2(forceX, forceY));
 
