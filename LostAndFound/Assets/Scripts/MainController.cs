@@ -81,6 +81,9 @@ public class MainController : MonoBehaviour
         //isground && key press -> jump -> jump2 -> run
         //bool a = isGround();
 
+        if (transform.localPosition.y > 3.2f) {
+            transform.localPosition = new Vector3(transform.localPosition.x, 3.2f);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

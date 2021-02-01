@@ -118,7 +118,7 @@ MonoBehaviour:
   time: 0.5
   amount: 4
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  hitColor: {r: 0.5, g: 0, b: 0, a: 1}
+  hitColor: {r: 0.4, g: 0.7921569, b: 0.43529412, a: 1}
 --- !u!1 &3817666335396463975
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 3817666335396463975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.8869386, y: -1.2456217, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 6523928980937410735}
   m_Father: {fileID: 0}
