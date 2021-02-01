@@ -18,9 +18,16 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int nowHeart;
     List<GameObject> heartList = new List<GameObject>();
+
+    private static GameManager gameManagerInstance;
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+
+        if (gameManagerInstance == null)
+            gameManagerInstance = this;
+        else
+            Destroy(gameObject);
     }
 
     // Start is called before the first frame update
@@ -37,7 +44,7 @@ public class GameManager : MonoBehaviour
             Application.Quit();
     }
 
-    private void Init()
+    public void Init()
     {
         nowHeart = initHeartNum;
         UpdateHeart();
@@ -107,9 +114,29 @@ public class GameManager : MonoBehaviour
         status.SetActive(true);
     }
 
+    public void HideStatus()
+    {
+        status.SetActive(false);
+    }
+
     public void EnterNextScene(string scene)
     {
         status.SetActive(false);
         SceneManager.LoadScene(scene);
+    }
+
+    public bool isKeyDown()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            return true;
+
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

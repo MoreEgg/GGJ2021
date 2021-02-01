@@ -120,7 +120,7 @@ public class LevelManager : MonoBehaviour
                 nowTime -= Time.deltaTime;
                 //Debug.LogError(nowTime);
                 //Debug.LogError(Input.GetKeyDown(KeyCode.Space));
-                if (nowTime <= 0.0f && Input.GetKeyDown(KeyCode.Space))
+                if (nowTime <= 0.0f && gameManager.isKeyDown())
                     if (gameManager != null)
                         gameManager.EnterNextScene(nextScene);
                 break;
@@ -172,5 +172,7 @@ public class LevelManager : MonoBehaviour
         if (nowState != State.End)
             nowTime = endingTime;
         nowState = State.End;
+        if (gameManager != null)
+            gameManager.HideStatus();
     }
 }

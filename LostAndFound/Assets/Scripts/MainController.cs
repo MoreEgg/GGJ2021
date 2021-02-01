@@ -8,7 +8,6 @@ public class MainController : MonoBehaviour
 
     private Rigidbody2D body2D;
     private float Life = 4.0f;
-    private float isGroundedRayLength = 0.1f;
     private LayerMask layerMaskForGrounded;
     private float groundHeight = -1.8f;
     public float standingThreshold = 4f;
@@ -52,7 +51,7 @@ public class MainController : MonoBehaviour
         Debug.Log("subchild:" + current.name);
         var ani = current.GetComponent<Animator>();
         
-        if (isGround() && Input.GetKeyDown(KeyCode.Space))
+        if (isGround() && gameManager.isKeyDown())
         {
             if (absVelY < maxVelocity.y)
             {

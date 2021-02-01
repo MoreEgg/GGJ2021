@@ -21,7 +21,7 @@ public class Creddit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isEnd && Input.GetKeyDown(KeyCode.Space))
+        if (isEnd && gameManager.isKeyDown())
             gameManager.EnterNextScene("Title");
     }
 }

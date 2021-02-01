@@ -11,12 +11,13 @@ public class TitleController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
+        gameManager.Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (gameManager.isKeyDown())
             gameManager.EnterNextScene(nextScene);
     }
 }

@@ -201,12 +201,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3817666335396463976, guid: 9b0e7064c31b7d14d91797993abf37bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817666335396463976, guid: 9b0e7064c31b7d14d91797993abf37bc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817666335396463976, guid: 9b0e7064c31b7d14d91797993abf37bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.8869386
       objectReference: {fileID: 0}
     - target: {fileID: 3817666335396463976, guid: 9b0e7064c31b7d14d91797993abf37bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2456217
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 3817666335396463976, guid: 9b0e7064c31b7d14d91797993abf37bc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -386,14 +394,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBeforeStart: 0.1
-  speed: 0.2
-  midSpeed: 0.4
+  speed: 0.3
+  midSpeed: 0.5
   openGO: {fileID: 1955921319}
   startGO: {fileID: 878339280}
   endGO: {fileID: 1381977990}
   targetGO: {fileID: 2104451204}
   targetMoveBackSpeed: 0.2
-  endingTime: 4
+  endingTime: 2
   nextScene: Creddit
   nowState: 0
 --- !u!1001 &54492166
@@ -513,7 +521,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 12.18}
+  m_Size: {x: 1, y: 100}
   m_EdgeRadius: 0
 --- !u!1001 &109549518
 PrefabInstance:
@@ -1062,27 +1070,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5897885298509279692, guid: eb4befa2631ea44cfbfed2762061ee65, type: 3}
   m_PrefabInstance: {fileID: 334312025}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &335804153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 739972819344048244, guid: 9b0e7064c31b7d14d91797993abf37bc, type: 3}
-  m_PrefabInstance: {fileID: 43194338}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &335804155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335804153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 138da2cab502b974bb7515038b67c30e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0.5
-  amount: 4
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  hitColor: {r: 0.5, g: 0, b: 0, a: 1}
 --- !u!4 &339484535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7979121524039688682, guid: 52d244b5181f840d485a1d8ebbbc0ba1, type: 3}
@@ -3568,7 +3555,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 15.5}
+  m_Size: {x: 5, y: 100}
   m_EdgeRadius: 0
 --- !u!4 &1322558169 stripped
 Transform:
@@ -4947,7 +4934,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3788acc3c7c2ccc4b8c763ff1c7be35b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5149,7 +5136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 16.95}
+  m_Size: {x: 2, y: 100}
   m_EdgeRadius: 0
 --- !u!1001 &1952415574
 PrefabInstance:
@@ -5693,7 +5680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104451204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.03, y: 0, z: 0}
+  m_LocalPosition: {x: 22, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1925454817}
